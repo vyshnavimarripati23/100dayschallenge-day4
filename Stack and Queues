@@ -1,5 +1,40 @@
+#printing the reverse of a string............................
 
-Stacks..........................
+str1=input("enter the string:")
+words=str1.split()
+rev_str=""
+for i in range(len(words)-1,-1,-1):
+    rev_str=rev_str+words[i]+" "
+print(rev_str.strip())
+
+
+#printing only unique letters form the string ...............................
+string1=input("enter the string:")
+dict1={}
+count=1
+for i in string1:
+    if i in dict1:
+        dict1[i]=dict1[i]+count
+    else:
+        dict1[i]=count
+for i in dict1:
+    if dict1[i]!=1:
+        print(i,":",dict1[i])
+
+#printing the second largest from the list or array.................
+l1=[4,3,7,6,1,8,10]
+max1=float('-inf')
+max2=float('-inf')
+for i in range(len(l1)):
+    if max1<l1[i]:
+        max1,max2=l1[i],max1
+    elif max1>l1[i] and max2<l1[i]:
+        max2=l1[i]
+        
+print(max1) 
+print(max2)
+        
+#Stacks..........................
 
 class Stack:
     def __init__(self, size):
@@ -49,15 +84,7 @@ class Stack:
 
 
 
-
-
-
-
-
-
-
-
-Queues..............................
+#Queues..............................
 
 class Queue:
     def __init__(self, size):
