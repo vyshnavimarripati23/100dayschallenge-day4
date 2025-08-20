@@ -1,0 +1,111 @@
+
+Stacks..........................
+
+class Stack:
+    def __init__(self, size):
+        self.stack = [None] * size
+        self.capacity = size
+        self.top = -1
+
+    # Push element
+    def push(self, x):
+        if self.is_full():
+            print("Stack Overflow!")
+            return
+        self.top += 1
+        self.stack[self.top] = x
+        print(f"{x} pushed into stack")
+
+    # Pop element
+    def pop(self):
+        if self.is_empty():
+            print("Stack Underflow!")
+            return None
+        x = self.stack[self.top]
+        self.top -= 1
+        return x
+
+    # Peek element
+    def peek(self):
+        if self.is_empty():
+            print("Stack is Empty!")
+            return None
+        return self.stack[self.top]
+
+    # Check if empty
+    def is_empty(self):
+        return self.top == -1
+
+    # Check if full
+    def is_full(self):
+        return self.top == self.capacity - 1
+
+    # Display stack
+    def display(self):
+        if self.is_empty():
+            print("Stack is Empty!")
+            return
+        print("Stack elements:", self.stack[:self.top+1])
+
+
+
+
+
+
+
+
+
+
+
+Queues..............................
+
+class Queue:
+    def __init__(self, size):
+        self.queue = [None] * size
+        self.capacity = size
+        self.front = 0
+        self.rear = -1
+
+    # Enqueue (insert at rear)
+    def enqueue(self, x):
+        if self.is_full():
+            print("Queue Overflow!")
+            return
+        self.rear += 1
+        self.queue[self.rear] = x
+        print(f"{x} inserted into queue")
+
+    # Dequeue (remove from front)
+    def dequeue(self):
+        if self.is_empty():
+            print("Queue Underflow!")
+            return None
+        x = self.queue[self.front]
+        self.front += 1
+        return x
+
+    # Peek front element
+    def peek(self):
+        if self.is_empty():
+            print("Queue is Empty!")
+            return None
+        return self.queue[self.front]
+
+    # Check if queue is empty
+    def is_empty(self):
+        return self.front > self.rear
+
+    # Check if queue is full
+    def is_full(self):
+        return self.rear == self.capacity - 1
+
+    # Display elements
+    def display(self):
+        if self.is_empty():
+            print("Queue is Empty!")
+            return
+        print("Queue elements:", self.queue[self.front:self.rear+1])
+q.enqueue(10)
+    q.enqueue(20)
+    q.enqueue(30)
+    q.display()
